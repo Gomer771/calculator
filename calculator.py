@@ -1,35 +1,46 @@
 def add(a, b):
-    return a+b 
+    return a + b 
 
 def multiply(a, b):
-  return a*b 
+    return a * b 
 
 def subtract(a, b):
-        return a-b
+    return a - b
 
+def squart(a, b):
+    return a / b
 
-user_input=input("Введите выражение")
+user_input = input("Введите выражение: ")
 result = 0
+
 if "+" in user_input:
-    user_input=user_input.split("+")
-    for i in range(0, len(user_input)):
-        user_input[i]= float (user_input[i])
-        result=(result, user_input[i])
-else:
+    number_list = user_input.split("+")
+    result = float(number_list[0])
+    for i in range(1, len(number_list)):
+        number_list[i] = float(number_list[i])
+        result = add(result, number_list[i])
 
-    result = 1
-if "*" in user_input:
-    user_input=user_input.split("*")
-    for i in range(0, len(user_input)):
-        user_input[i]= float (user_input[i])
-        result=multiply(result, user_input[i])
-else:
 
-    result = 0
-if "-" in user_input:
-    user_input=user_input.split("-")
-    for i in range(0, len(user_input)):
-        user_input[i]= float (user_input[i])
-        result=subtract(user_input[i], result)
+elif "*" in user_input:
+    number_list = user_input.split("*")
+    result = float(number_list[0])
+    for i in range(1, len(number_list)):
+        number_list[i] = float(number_list[i])
+        result = multiply(result, number_list[i])
+
+
+elif "-" in user_input:
+    number_list = user_input.split("-")
+    result = float(number_list[0])
+    for i in range(1, len(number_list)):
+        number_list[i] = float(number_list[i])
+        result = subtract(result, number_list[i])
+
+elif "/" in user_input:
+    number_list = user_input.split("/")
+    result = float(number_list[0])
+    for i in range(1, len(number_list)):
+        number_list[i] = float(number_list[i])
+        result = squart(result, number_list[i])
 
 print(result)
